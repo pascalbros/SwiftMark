@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SwiftMark
 @testable import SwiftMark
 
 class SwiftMarkTests: XCTestCase {
@@ -22,8 +23,19 @@ class SwiftMarkTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let md = "**Swift***Mark*"
+        if let html = try? commonMarkToHTML(md){
+            print(html)
+        }
+    }
+    
+    func testWithFile() {
+        let bundle = Bundle(for: type(of: self))
+        if let url = bundle.url(forResource: "sample", withExtension: "md") {
+            guard let md = try? loadCommonMarkFromURL(url, encoding: .utf8) else { return }
+            guard let html = try? commonMarkToHTML(md) else { return }
+            print(html)
+        }
     }
     
     func testPerformanceExample() {

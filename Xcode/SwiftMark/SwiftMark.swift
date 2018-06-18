@@ -43,9 +43,9 @@ public func commonMarkToHTML(_ str: String, options: SwiftMarkOptions = .Default
  */
 public func commonMarkToXML(_ str: String, options: SwiftMarkOptions = .Default) throws -> String {
     guard let ast = commonMarkAST(str, options: options) else { throw SwiftMarkError.parsingError }
-    defer { cmark_node_free(ast); ast.deinitialize() }
+    defer { cmark_node_free(ast); ast.deallocate() }
     guard let buf = cmark_render_xml(ast, options.rawValue) else { throw SwiftMarkError.parsingError }
-    defer { free(buf); buf.deinitialize() }
+    defer { free(buf); buf.deallocate() }
     let buffer = String(validatingUTF8: buf)
     guard let output = buffer else { throw SwiftMarkError.parsingError }
     return output

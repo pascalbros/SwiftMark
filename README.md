@@ -15,7 +15,7 @@ This framework offers high-level API to convert any [*CommonMark*](http://common
 
 ## Setup
 ### Using Carthage
-Add `github "Pyroh/SwiftMark" ~> 0.9` to your `Cartfile` and run `carthage update`. If you need help using Carthage you can take a look at their [Getting Started](https://github.com/Carthage/Carthage#getting-started) section.
+Add `github "pascalbros/SwiftMark" ~> 0.9` to your `Cartfile` and run `carthage update`. If you need help using Carthage you can take a look at their [Getting Started](https://github.com/Carthage/Carthage#getting-started) section.
 
 ### Manually
 1. Clone this repository.
